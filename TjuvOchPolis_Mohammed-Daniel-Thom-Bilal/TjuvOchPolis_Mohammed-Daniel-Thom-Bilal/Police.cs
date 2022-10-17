@@ -8,5 +8,6 @@ namespace TjuvOchPolis_Mohammed_Daniel_Thom_Bilal
 {
     internal class Police
     {
+
     }
 }
