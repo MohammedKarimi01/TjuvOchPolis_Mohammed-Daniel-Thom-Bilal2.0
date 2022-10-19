@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace TjuvOchPolis_Mohammed_Daniel_Thom_Bilal
 {
-    internal class Civilian 
+    internal class Civilian : Persons
     {
-        
+        public string C { get; set; }
+        public Civilian()
+        {
+            C = "C";
+        }
+        public void tagen()
+        {
+            int e;
+
+        }
     }
 }

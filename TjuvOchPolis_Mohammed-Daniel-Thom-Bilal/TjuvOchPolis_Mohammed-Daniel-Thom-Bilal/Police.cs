@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace TjuvOchPolis_Mohammed_Daniel_Thom_Bilal
 {
-    internal class Police
+    internal class Police : Persons
     {
+        public string P { get; set; }
+        public Police()
+        {
+            P = "P";
+        }
 
     }
+    
 }
