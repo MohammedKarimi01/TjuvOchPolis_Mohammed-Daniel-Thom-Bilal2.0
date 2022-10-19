@@ -8,15 +8,16 @@ namespace TjuvOchPolis_Mohammed_Daniel_Thom_Bilal
 {
     internal class Persons
     {
-        public int x { get; set; }
-        public int y { get; set; }
+        public int CordX{ get; set; }
+        public int CordY { get; set; }
         public int Xdirection { get; set; }
         public int Ydirection { get; set; }
         public string inventory { get; set; }
 
-        public Persons()
+        public Persons(int cordx, int cordy)
         {
-
+            CordX = cordx;
+            CordY = cordy;
         }
 
     }
