@@ -46,10 +46,24 @@ while (true)
     for (int i = 0; i < thiefs.Count; i++)
     {
             Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].randomDirectionX(randomsiffraThiefX[i]) + " " + thiefs[i].randomDirectionY(randomsiffraThiefY[i]));
+      foreach (Persons tagens in poliser)
+	{
+        if (tagens.CordY == thiefs[i].CordY && tagens.CordX == thiefs[i].CordX)
+	{
+            Console.WriteLine("Tagen");
+	}
+	}
     }
     for (int i = 0; i < civillians.Count; i++)
     {
             Console.WriteLine(personer + " " + civilian.C + " " + civillians[i].randomDirectionX(randomsiffraCivillianX[i]) + " " + civillians[i].randomDirectionY(randomsiffraCivillianY[i]));
+        foreach (Persons rånad in thiefs)
+	{
+        if (rånad.CordY == civillians[i].CordY && rånad.CordX == civillians[i].CordX)
+	{
+            Console.WriteLine("Rånad");
+	}
+	}
     }
     Console.ReadKey();
 }
