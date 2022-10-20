@@ -70,19 +70,21 @@ namespace TjuvOchPolis_Mohammed_Daniel_Thom_Bilal
                     CordY += Ydirection;
                     break;
             }
-            if (CordY > 100)
+            if (CordY > 25)
             {
-                CordY = 1;
+                CordY = 0;
             }
             if (CordY < 0)
             {
-                CordY = 100;
+                CordY = 25;
             }
             return CordY;
         }
-        public void randomDirection()
+        public int randomDirection()
         {
-
+            Random rnd = new Random();
+            int random = rnd.Next(1, 4);
+            return random;
         }
         //public void print(List<Persons> persons)
         //{

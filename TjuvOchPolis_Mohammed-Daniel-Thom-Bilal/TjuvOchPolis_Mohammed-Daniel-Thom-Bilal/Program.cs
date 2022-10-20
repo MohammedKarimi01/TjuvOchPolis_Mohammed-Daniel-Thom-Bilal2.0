@@ -10,55 +10,46 @@ Thief thief = new Thief();
 List<Persons> poliser = new List<Persons>();
 List<Persons> thiefs = new List<Persons>();
 List<Persons> civillians = new List<Persons>();
+List<int> randomsiffraPolisX = new List<int>();
+List<int> randomsiffraPolisY = new List<int>();
+List<int> randomsiffraCivillianX = new List<int>();
+List<int> randomsiffraCivillianY = new List<int>();
+List<int> randomsiffraThiefX = new List<int>();
+List<int> randomsiffraThiefY = new List<int>();
 int personer = 0;
 int tagen = 0;
-    for (int i = 0; i < 7; i++)
+for (int i = 0; i < 7; i++)
     {
         poliser.Add(new Police());
-    }
+        randomsiffraPolisX.Add(randomDirection_.randomDirection());
+        randomsiffraPolisY.Add(randomDirection_.randomDirection());
+}
     for (int i = 0; i < 20; i++)
     {
         civillians.Add(new Civilian());
-    }
+        randomsiffraCivillianX.Add(randomDirection_.randomDirection());
+        randomsiffraCivillianY.Add(randomDirection_.randomDirection());
+}
     for (int i = 0; i < 15; i++)
     {
         thiefs.Add(new Thief());
+    randomsiffraThiefX.Add(randomDirection_.randomDirection());
+    randomsiffraThiefY.Add(randomDirection_.randomDirection());
     }
 while (true)
 {
-    Random rnd = new Random();
-    int random = rnd.Next(1, 4);
-    polis.CordX = randomDirection_.randomDirectionX(random);
-    polis.CordY = randomDirection_.randomDirectionY(random);
     Console.Clear();
     for (int i = 0; i < poliser.Count; i++)
     {
-        Console.WriteLine(personer + " " + polis.P + poliser[i].CordX + " " + poliser[i].CordY);
+        Console.WriteLine(personer + " " + polis.P + poliser[i].randomDirectionX(randomsiffraPolisX[i]) + " " + poliser[i].randomDirectionY(randomsiffraPolisY[i]));
     }
     for (int i = 0; i < thiefs.Count; i++)
     {
-            Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].CordX + " " + thiefs[i].CordY);
-        randomDirection_.randomDirectionX(random);
+            Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].randomDirectionX(randomsiffraThiefX[i]) + " " + thiefs[i].randomDirectionY(randomsiffraThiefY[i]));
     }
     for (int i = 0; i < civillians.Count; i++)
     {
-            Console.WriteLine(personer + " " + civilian.C + " " + civillians[i].CordX + " " + civillians[i].CordY);
-        randomDirection_.randomDirectionX(random);
-        foreach (Persons rånade in thiefs)
-        {
-            if (rånade.CordX == civillians[i].CordX && rånade.CordY == civillians[i].CordY)
-            {
-                Console.WriteLine("tjuv råna medborgare " + civillians[i].CordX + " " + civillians[i].CordY);
-            }
-        }        
-    }
-    
-    for (int i = 0; i < personer; i++)
-    {
-        if (i < 5 && thiefs[i].CordY == poliser[i].CordY && thiefs[i].CordX == poliser[i].CordX)
-        {
-            Console.WriteLine("X, polis grep tjuv");
-        }
+            Console.WriteLine(personer + " " + civilian.C + " " + civillians[i].randomDirectionX(randomsiffraCivillianX[i]) + " " + civillians[i].randomDirectionY(randomsiffraCivillianY[i]));
     }
     Console.ReadKey();
 }
