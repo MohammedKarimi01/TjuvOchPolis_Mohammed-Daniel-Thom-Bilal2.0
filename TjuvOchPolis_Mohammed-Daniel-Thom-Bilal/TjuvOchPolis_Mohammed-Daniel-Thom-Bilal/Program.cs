@@ -18,24 +18,28 @@ List<int> randomsiffraThiefX = new List<int>();
 List<int> randomsiffraThiefY = new List<int>();
 int personer = 0;
 int tagen = 0;
+
 for (int i = 0; i < 7; i++)
-    {
-        poliser.Add(new Police());
-        randomsiffraPolisX.Add(randomDirection_.randomDirection());
-        randomsiffraPolisY.Add(randomDirection_.randomDirection());
+{
+    poliser.Add(new Police());
+    randomsiffraPolisX.Add(randomDirection_.randomDirection());
+    randomsiffraPolisY.Add(randomDirection_.randomDirection());
 }
-    for (int i = 0; i < 20; i++)
-    {
-        civillians.Add(new Civilian());
-        randomsiffraCivillianX.Add(randomDirection_.randomDirection());
-        randomsiffraCivillianY.Add(randomDirection_.randomDirection());
+
+for (int i = 0; i < 20; i++)
+{
+    civillians.Add(new Civilian());
+    randomsiffraCivillianX.Add(randomDirection_.randomDirection());
+    randomsiffraCivillianY.Add(randomDirection_.randomDirection());
 }
-    for (int i = 0; i < 15; i++)
-    {
-        thiefs.Add(new Thief());
+
+for (int i = 0; i < 15; i++)
+{
+    thiefs.Add(new Thief());
     randomsiffraThiefX.Add(randomDirection_.randomDirection());
     randomsiffraThiefY.Add(randomDirection_.randomDirection());
-    }
+}
+
 while (true)
 {
     personer = 1;
@@ -45,18 +49,20 @@ while (true)
         Console.WriteLine(personer + " " + polis.P + poliser[i].randomDirectionX(randomsiffraPolisX[i]) + " " + poliser[i].randomDirectionY(randomsiffraPolisY[i]));
         personer++;
     }
+
     for (int i = 0; i < thiefs.Count; i++)
     {
             Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].randomDirectionX(randomsiffraThiefX[i]) + " " + thiefs[i].randomDirectionY(randomsiffraThiefY[i]));
         personer++;
       foreach (Persons tagens in poliser)
-	{
+	  {
         if (tagens.CordY == thiefs[i].CordY && tagens.CordX == thiefs[i].CordX)
-	{
+	    {
             Console.WriteLine("Tagen");
-	}
-	}
+	    }
+	  }
     }
+
     for (int i = 0; i < civillians.Count; i++)
     {
             Console.WriteLine(personer + " " + civilian.C + " " + civillians[i].randomDirectionX(randomsiffraCivillianX[i]) + " " + civillians[i].randomDirectionY(randomsiffraCivillianY[i]));
