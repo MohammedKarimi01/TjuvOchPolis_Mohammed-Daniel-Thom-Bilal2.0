@@ -2,8 +2,8 @@
 using System;
 using System.Runtime.CompilerServices;
 using TjuvOchPolis_Mohammed_Daniel_Thom_Bilal;
+string[] rånad123;
 Persons randomDirection_ = new Persons();
-int j = 0;
 Police polis = new Police();
 Civilian civilian = new Civilian();
 Thief thief = new Thief();
@@ -38,14 +38,17 @@ for (int i = 0; i < 7; i++)
     }
 while (true)
 {
+    personer = 1;
     Console.Clear();
     for (int i = 0; i < poliser.Count; i++)
     {
         Console.WriteLine(personer + " " + polis.P + poliser[i].randomDirectionX(randomsiffraPolisX[i]) + " " + poliser[i].randomDirectionY(randomsiffraPolisY[i]));
+        personer++;
     }
     for (int i = 0; i < thiefs.Count; i++)
     {
             Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].randomDirectionX(randomsiffraThiefX[i]) + " " + thiefs[i].randomDirectionY(randomsiffraThiefY[i]));
+        personer++;
       foreach (Persons tagens in poliser)
 	{
         if (tagens.CordY == thiefs[i].CordY && tagens.CordX == thiefs[i].CordX)
@@ -57,14 +60,21 @@ while (true)
     for (int i = 0; i < civillians.Count; i++)
     {
             Console.WriteLine(personer + " " + civilian.C + " " + civillians[i].randomDirectionX(randomsiffraCivillianX[i]) + " " + civillians[i].randomDirectionY(randomsiffraCivillianY[i]));
+        personer++;
         foreach (Persons rånad in thiefs)
 	{
         if (rånad.CordY == civillians[i].CordY && rånad.CordX == civillians[i].CordX)
 	{
-            Console.WriteLine("Rånad");
+                rånad123[i] = personer + " Rånad";
+                civilian.Items();
 	}
 	}
     }
+            Console.WriteLine("------------");
+    for (int i = 0; i < rånad123.Length; i++)
+			{
+        Console.WriteLine(rånad123[i]);
+			}
     Console.ReadKey();
 }
 
