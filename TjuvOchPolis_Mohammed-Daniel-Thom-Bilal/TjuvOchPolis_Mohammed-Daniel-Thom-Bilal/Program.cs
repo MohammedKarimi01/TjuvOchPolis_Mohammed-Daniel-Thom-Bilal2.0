@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using TjuvOchPolis_Mohammed_Daniel_Thom_Bilal;
-string[] rånad123;
+//string[] rånad123 = new string[];
 Persons randomDirection_ = new Persons();
 Police polis = new Police();
 Civilian civilian = new Civilian();
@@ -71,16 +71,13 @@ while (true)
 	{
         if (rånad.CordY == civillians[i].CordY && rånad.CordX == civillians[i].CordX)
 	{
-                rånad123[i] = personer + " Rånad";
+                Console.WriteLine("En person blev rånad.");
                 civilian.Items();
 	}
 	}
     }
-            Console.WriteLine("------------");
-    for (int i = 0; i < rånad123.Length; i++)
-			{
-        Console.WriteLine(rånad123[i]);
-			}
+
+
     Console.ReadKey();
 }
 
