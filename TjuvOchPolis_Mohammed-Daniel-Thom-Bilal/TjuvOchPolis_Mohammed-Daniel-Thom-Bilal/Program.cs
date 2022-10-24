@@ -18,8 +18,10 @@ List<int> randomsiffraThiefX = new List<int>();
 List<int> randomsiffraThiefY = new List<int>();
 int personer = 0;
 int tagen = 0;
+int antalRånade = 0;
+int antalGripna = 0;
 
-for (int i = 0; i < 7; i++)
+for (int i = 0; i < 7; i++)//Skapar poliser, civilians och thieves med random direction
 {
     poliser.Add(new Police());
     randomsiffraPolisX.Add(randomDirection_.randomDirection());
@@ -40,13 +42,18 @@ for (int i = 0; i < 15; i++)
     randomsiffraThiefY.Add(randomDirection_.randomDirection());
 }
 
+
 while (true)
 {
-    personer = 1;
     Console.Clear();
-    for (int i = 0; i < poliser.Count; i++)
+    Console.WriteLine("Antal rånade: " + antalRånade);
+    Console.WriteLine("Antal gripna: " + antalGripna);
+    Console.WriteLine("-----------------------------------------------");
+    personer = 1;
+    
+    for (int i = 0; i < poliser.Count; i++)//Skriver ut vart de olika personerna befinner sig
     {
-        Console.WriteLine(personer + " " + polis.P + poliser[i].randomDirectionX(randomsiffraPolisX[i]) + " " + poliser[i].randomDirectionY(randomsiffraPolisY[i]));
+        Console.WriteLine(personer + " " + polis.P + " " + poliser[i].randomDirectionX(randomsiffraPolisX[i]) + " " + poliser[i].randomDirectionY(randomsiffraPolisY[i]));
         personer++;
     }
 
@@ -54,11 +61,13 @@ while (true)
     {
             Console.WriteLine(personer + " " + thief.T + " " + thiefs[i].randomDirectionX(randomsiffraThiefX[i]) + " " + thiefs[i].randomDirectionY(randomsiffraThiefY[i]));
         personer++;
-      foreach (Persons tagens in poliser)
+      foreach (Persons tagens in poliser)//Kollar om tjuv och polis kolliderar, skriver ut att tjuven blir tagen.
 	  {
         if (tagens.CordY == thiefs[i].CordY && tagens.CordX == thiefs[i].CordX)
 	    {
-            Console.WriteLine("Tagen");
+                antalGripna++;
+                Console.WriteLine("Tagen");
+                Thread.Sleep(1000);
 	    }
 	  }
     }
@@ -69,15 +78,17 @@ while (true)
         personer++;
         foreach (Persons rånad in thiefs)
 	{
-        if (rånad.CordY == civillians[i].CordY && rånad.CordX == civillians[i].CordX)
+        if (rånad.CordY == civillians[i].CordY && rånad.CordX == civillians[i].CordX)//Kollar om civilian och tjuv kolliderar, skriver ut rånad.
 	{
                 Console.WriteLine("En person blev rånad.");
+                antalRånade++;
                 civilian.Items();
+                Thread.Sleep(1000);
 	}
 	}
     }
 
-
-    Console.ReadKey();
+    Thread.Sleep(500);
+    //Console.ReadKey();
 }
 
